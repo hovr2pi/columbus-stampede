@@ -8,10 +8,13 @@ to then calculation state to state reaction rates via QCT.
 
 Installation
 ------------
-echo "module load git" >> ~/.bashrc
-module load git 
-cd $WORK
-git clone https://github.com/hovr2pi/columbus-stampede.git
+
+```bash
+$ echo "module load git" >> ~/.bashrc
+$ module load git 
+$ cd $WORK
+$ git clone https://github.com/hovr2pi/columbus-stampede.git
+```
 
 Dependencies
 ------------
@@ -20,7 +23,12 @@ Perl
 
 In order to use columbus you need your own version of perl and CPAN installed.
 
-A howto is available at: hovr2pi(http://git.hovr2pi.org)
+```bash 
+$ curl -L http://install.perlbrew.pl | bash
+$ echo "source ~/perl5/perlbrew/etc/bashrc" >> $HOME/.profile
+$ perlbrew install perl-5.19.5
+$ perlbrew use perl-5.19.5
+```
 
 License
 -------
@@ -30,8 +38,7 @@ Contributing
 ------------
 
 Contributions are very welcome.  If you wish to contribute, please
-take a few moments to review the [branching
-model](http://nvie.com/posts/a-successful-git-branching-model/)
+take a few moments to review the [branching model](http://nvie.com/posts/a-successful-git-branching-model/)
 `columbus-stampede` utilizes.
 
 Support
