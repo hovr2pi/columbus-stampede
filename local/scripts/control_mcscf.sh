@@ -1,10 +1,9 @@
 #!/bin/bash
 
-# launcer_mcscf.sh: a shell script to drive COLUMBUS that interacts with slurm and launcher correectly
-export PATH="$HOME/perl5/perlbrew/perls/perl-5.19.5/bin/perl:$WORK/columbus/Columbus:$PATH"
-export PERL5LIB=$PERL5LIB:/work/00416/csim/columbus/Columbus/perlscripts
+# conntrol_mcscf.sh: a shell script to drive COLUMBUS that interacts with slurm and launcher correectly
 
-# Argument = -t test -r server -p password -v
+COLUMBUS=/scratch/00416/csim/cs_new
+PATH=/scratch/00416/csim/cs_new:$PATH
 
 usage()
 {
@@ -80,12 +79,21 @@ else
    echo "running points from $starting_point to $finishing_point"    
 fi   
 
+
 #lets figure out the number of 0s that need to be padded"
-actual_file_suffix=`ls geom.*$starting_point | head -n1 | cut -f2 -d. `
+
+# let's see if the file is there
+cd inputs && ls geom.*$starting_point | head -n1 | cut -f2 -d. || { echo 'no geom file found with that name'; } 
+
+# calculating actual file suffix
+
+actual_file_suffix=`ls geom.*$starting_point | head -n1 | cut -f2 -d.`
 
 echo "starting with point geom.$actual_file_suffix"
 
 input_file_name=geom."$actual_file_suffix"
+cp $input_file_name ..
+cd ..
 echo ""
 echo ""
  
@@ -107,15 +115,16 @@ for i in =`seq $starting_point $finishing_point`
     fi
  
 
-  #initial current point to the starting point
+#initial current point to the starting point
 
   echo starting geometry $input_file_name
 
+cp inputs/$input_file_name .
 cat $input_file_name > geom << EOF
 EOF
 cat geom > log.$current_point
 cp  mcscf1/* .
-FILE_LIST=LISTINGS MOCOEFS MOLDEN 
+FILE_LIST="LISTINGS MOCOEFS MOLDEN"
 for LIST_OF_FILES in $FILE_LIST
   do
   echo "removing file $LIST_OF_FILES$current_point"
@@ -131,12 +140,12 @@ done
 
 
 echo "invoking runc the first time on point $current_point" 
-runc -m 8000 >> log.$current_point
+./runc -m 8000 >> log.$current_point
 mv MOLDEN/molden_mo_mc.sp MOLDEN/molden_mo_mc.sp1
 cp MOCOEFS/mocoef_mc.sp mocoef
 cp  mcscf3/* .
 echo "invoking runc the second time on point $current_point"
-runc -m 8000 >> log.$current_point
+./runc -m 8000 >> log.$current_point
 cp -r LISTINGS LISTINGS_$current_point
 cp -r MOCOEFS MOCOEFS_$current_point
 cp -r MOLDEN MOLDEN_$current_point
