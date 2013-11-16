@@ -159,7 +159,7 @@ $ cpan-outdated -p | cpanm
 
 License
 -------
-See `LICENSE` file distributed with `QUESO` for more information.
+See `LICENSE` file distributed with `columbus-stampede` for more information.
 
 
 Support
