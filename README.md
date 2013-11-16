@@ -39,14 +39,23 @@ Now that that is bootstrapped, we can upgrade out perl modules automagically:
 $ cpan-outdated -p | cpanm
 ```
 
+Still, some packages are not in `cpanm` so we have to use CPAN.
 
+```bash
+$ cpan
+$ install Devel::PPPort
+```
+
+```bash
+$ printf 'CURSES_LDFLAGS=-lncursesw' >> $HOME/.bashrc
+```
 
 Installation of Columbus
 ========================
 
 ```bash
 $ wget http://www.univie.ac.at/columbus/C70_beta_pre-release/Columbus.7.0/Col7.0_2013-07-01_linux64.ifc.byterecl_src.tar.gz
-```G
+```
 
 ```bash
 $ tar xf Col7.0_2013-07-01_linux64.ifc.byterecl_src.tar.gz
@@ -62,8 +71,20 @@ $ cd $COLUMBUS/../
 $ ./install.automatic cpan
 ``` 
 
-
+```bash
+$ module load gsl ga && echo "module load gsl ga" >> $HOME/.bashrc
 ```
+
+Now we will need molden. Note, you will need to use the molden from [install.hovr2pi.org/contrib/molden.tar.gz]
+due to the use of a deprecated makedepend script provided on their website.
+
+To make things easier, do it in your top level directory of COLUMBUS
+
+```bash
+$ cd $COLUMBUS/.. &&  curl -l http://install.hovr2pi.org/molden | bash
+```
+
+
 The `columbus-stampede` suite of scripts
 =================
 
@@ -81,8 +102,6 @@ $ cd $WORK
 $ git clone https://github.com/hovr2pi/columbus-stampede.git
 ```
 
-<<<<<<< HEAD
-=======
 Dependencies
 ------------
 
@@ -120,10 +139,6 @@ $ cpan-outdated -p | cpanm
 License
 -------
 See `LICENSE` file distributed with `QUESO` for more information.
-
-Contributing
-------------
->>>>>>> 2dda8ba373a07adcbd015a20a68aef87db617401
 
 
 Support
