@@ -11,6 +11,7 @@ $ curl -L http://install.perlbrew.pl | bash
 $ echo "source ~/perl5/perlbrew/etc/bashrc" >> $HOME/.profile
 $ perlbrew install perl-5.19.5
 $ perlbrew use perl-5.19.5
+```
 
 
 Alternatively, you can use [install.hovr2pi](http://install.hovr2pi.org)
@@ -19,6 +20,8 @@ Alternatively, you can use [install.hovr2pi](http://install.hovr2pi.org)
 $ curl -l http://install.hovr2pi.org/perlbrew | bash
 ```
 
+We will also need a way to install and manage perl packages. This can be done
+by CPAN but [cpanminus] does an excellent job when combined with [cpan-outdated]
 Install cpanium
 
 ```bash
