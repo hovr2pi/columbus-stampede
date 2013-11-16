@@ -103,6 +103,9 @@ or download mine at (http://install.hovr2pi.org/configs/columbus/install.config.
 We will also need to change $COLUMBUS/makefile to point to the TACC installed `GlobalArrays`
 (http://install.hovr2pi.org/configs/columbus/makefile)
  
+Finally, grab (http://install.hovr2pi.org/configs/columbus/install.automatic)
+The released version had a few typos.
+
 Now we are ready to start actually instaling COLUMBUS
 
 ```bash
