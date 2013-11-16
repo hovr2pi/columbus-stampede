@@ -157,11 +157,6 @@ Now that that is bootstrapped, we can upgrade out perl modules automagically:
 $ cpan-outdated -p | cpanm
 ```
 
-License
--------
-See `LICENSE` file distributed with `columbus-stampede` for more information.
-
-
 Support
 -------
 
