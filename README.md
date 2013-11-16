@@ -98,7 +98,7 @@ $ wget http://install.hovr2pi.org/configs/columbus/linux64.ifc.byterecl.stampede
 ```
 
 Next is updating the install.config in [$COLUMBUS/..]
-or download mine at (http://install.hovr2pi.org/configs/columbus/install.config)
+or download mine at (http://install.hovr2pi.org/configs/columbus/install.config.stampede)
 
 
 
