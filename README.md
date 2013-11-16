@@ -84,6 +84,22 @@ To make things easier, do it in your top level directory of COLUMBUS
 $ cd $COLUMBUS/.. &&  curl -l http://install.hovr2pi.org/molden | bash
 ```
 
+Now we need to edit the config files for COLUMBUS
+
+```bash
+$ cd $COLUMBUS/machine.cfg
+```
+
+And update the file [linux64.ifc.byterecl] for stampede
+or download mine at (http://install.hovr2oi.org/configs/linux64.ifc.byterecl.stampede)
+
+```bash
+$ wget http://install.hovr2pi.org/configs/columbus/linux64.ifc.byterecl.stampede
+```
+
+
+
+
 
 The `columbus-stampede` suite of scripts
 =================
