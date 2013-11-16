@@ -91,7 +91,7 @@ $ cd $COLUMBUS/machine.cfg
 ```
 
 And update the file [linux64.ifc.byterecl] for stampede
-or download mine at (http://install.hovr2oi.org/configs/linux64.ifc.byterecl.stampede)
+or download mine at (http://install.hovr2oi.org/configs/columbus/linux64.ifc.byterecl.stampede)
 
 ```bash
 $ wget http://install.hovr2pi.org/configs/columbus/linux64.ifc.byterecl.stampede
