@@ -109,11 +109,16 @@ The released version had a few typos.
 Now we are ready to start actually instaling COLUMBUS
 
 ```bash
-$ ./install.automatic -p  linux64.ifc.byterecl standard
+$ ./install.automatic -p linux64.ifc.byterecl standard grad cc parallel runtests
 ```
 
+And the only other thing we need to do is replace the distributed Curses.so with the
+one we setup earlier 
 
-
+```bash
+$ mv $COLUMBUS/CPAN/auto/curses/Curses.so $COLUMBUS/CPAN/auto/curses/Curses.so.orig
+$ cp /home1/00416/csim/perl5/perlbrew/perls/perl-5.19.5/lib/site_perl/5.19.5/x86_64-linux/auto/Curses $COLUMBUS/CPAN/auto/curses/Curses.so
+```
 
 The `columbus-stampede` suite of scripts
 =================
