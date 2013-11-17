@@ -171,9 +171,3 @@ Now that that is bootstrapped, we can upgrade out perl modules automagically:
 $ cpan-outdated -p | cpanm
 ```
 
-Support
--------
-
-If you have questions or need help with using or contributing to `columbus-stampede`,
-feel free to email me at csim@hovr2pi.org
-
