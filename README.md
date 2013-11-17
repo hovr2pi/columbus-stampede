@@ -90,21 +90,35 @@ Now we need to edit the config files for COLUMBUS
 $ cd $COLUMBUS/machine.cfg
 ```
 
-And update the file [linux64.ifc.byterecl] for stampede
+And update the file `linux64.ifc.byterecl` for stampede
 or download mine at (http://install.hovr2pi.org/configs/columbus/linux64.ifc.byterecl.stampede)
 
 ```bash
 $ wget http://install.hovr2pi.org/configs/columbus/linux64.ifc.byterecl.stampede
 ```
 
-Next is updating the install.config in [$COLUMBUS/..]
+Next is updating the install.config in `$COLUMBUS/..`
 or download mine at (http://install.hovr2pi.org/configs/columbus/install.config.stampede)
 
+We will also need to change $COLUMBUS/makefile to point to the TACC installed `GlobalArrays`
+(http://install.hovr2pi.org/configs/columbus/makefile)
+ 
+Finally, grab (http://install.hovr2pi.org/configs/columbus/install.automatic)
+The released version had a few typos.
 
+Now we are ready to start actually instaling COLUMBUS
 
+```bash
+$ ./install.automatic -p linux64.ifc.byterecl standard grad cc parallel runtests
+```
 
+And the only other thing we need to do is replace the distributed Curses.so with the
+one we setup earlier 
 
-
+```bash
+$ mv $COLUMBUS/CPAN/auto/curses/Curses.so $COLUMBUS/CPAN/auto/curses/Curses.so.orig
+$ cp /home1/00416/csim/perl5/perlbrew/perls/perl-5.19.5/lib/site_perl/5.19.5/x86_64-linux/auto/Curses $COLUMBUS/CPAN/auto/curses/Curses.so
+```
 
 The `columbus-stampede` suite of scripts
 =================
@@ -122,49 +136,3 @@ $ module load git
 $ cd $WORK
 $ git clone https://github.com/hovr2pi/columbus-stampede.git
 ```
-
-Dependencies
-------------
-
-Perl
-
-In order to use columbus you need your own version of perl and CPAN installed.
-
-```bash 
-$ curl -L http://install.perlbrew.pl | bash
-$ echo "source ~/perl5/perlbrew/etc/bashrc" >> $HOME/.profile
-$ perlbrew install perl-5.19.5
-$ perlbrew use perl-5.19.5
-```
-
-Now we will need an easy to update all the perl packages. CPAN works but I prefer not to go into the CPAN shell
-and instead use `cpanimus` and `cpan-outdated`.
-
-Install cpanium
-
-```bash
-$ curl -L http://cpanmin.us | perl - App::cpanminus
-```
-
-And then install `cpan-outdated` along with all perl modules using `cpanm`:
-```bash
-$ cpanm App::cpanoutdated
-```
-
-Now that that is bootstrapped, we can upgrade out perl modules automagically:
-
-```bash
-$ cpan-outdated -p | cpanm
-```
-
-License
--------
-See `LICENSE` file distributed with `QUESO` for more information.
-
-
-Support
--------
-
-If you have questions or need help with using or contributing to `columbus-stampede`,
-feel free to email me at csim@hovr2pi.org
-
