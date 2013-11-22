@@ -100,15 +100,22 @@ $ wget http://install.hovr2pi.org/configs/columbus/linux64.ifc.byterecl.stampede
 Next is updating the install.config in $COLUMBUS/.. with the one I created
 ```bash
 $ cd $COLUMBUS/..
-$ wget http://install.hovr2pi.org/configs/columbus/install.config.stampede
+$ curl -l http://install.hovr2pi.org/configs/columbus/install.config.stampede > install.config
+$ mv install.config.stampede install.config
 ```
 
 We will also need to change $COLUMBUS/makefile to point to the TACC installed `GlobalArrays`
-(http://install.hovr2pi.org/configs/columbus/makefile)
+```bash
+$ cd $COLUMBUS
+$ curl -l http://install.hovr2pi.org/configs/columbus/makefile > makefile
+```
  
-Finally, grab (http://install.hovr2pi.org/configs/columbus/install.automatic)
-The released version had a few typos.
+Finally, we need a new version of `install.automatic`. The released version had a few typos.
 
+```bash
+$ cd $COLUMBUS/../
+$ curl -l http://install.hovr2pi.org/configs/columbus/install.automatic > install.automatic
+```
 Now we are ready to start actually instaling COLUMBUS
 
 ```bash
