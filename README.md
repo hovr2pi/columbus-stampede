@@ -39,6 +39,15 @@ Now that that is bootstrapped, we can upgrade out perl modules automagically:
 $ cpan-outdated -p | cpanm
 ```
 
+And now we shall use cpanm to install `Shell` and `Curses`
+```bash
+$ cpanm Shell
+```
+
+```bash
+$ cpanm Curses
+```
+
 Still, some packages are not in `cpanm` so we have to use CPAN.
 
 ```bash
@@ -70,6 +79,7 @@ $ printf 'COLUMBUS'=`pwd`'/Columbus' >> $HOME/.bashrc
 $ cd $COLUMBUS/../
 $ ./install.automatic cpan
 ``` 
+
 
 ```bash
 $ module load gsl ga && echo "module load gsl ga" >> $HOME/.bashrc
