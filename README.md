@@ -48,6 +48,15 @@ $ cpanm Shell
 $ cpanm Curses
 ```
 
+Copy all of the perlscripts provided by Columbus into the perlbrew directory
+so we do not have to worry about maintining multiple locations of perl modules.
+
+```bash
+$ cp $COLUMBUS/perlscripts/* $HOME/perlbrew/perl-5.19.5/lib
+$ cp $COLUMBUS/CPAN/* $HOME/perlbrew/perl-5.19.5/lib
+```
+
+
 Still, some packages are not in `cpanm` so we have to use CPAN.
 
 ```bash
